@@ -21,13 +21,15 @@
     }
   </style>
 </head>
-<body class="bg-rose-50/40 text-slate-800 antialiased min-h-screen flex flex-col">
+<body class="bg-rose-50/40 text-slate-800 antialiased min-h-screen flex flex-col select-none">
 
-  <!-- Header -->
-  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-rose-100 shadow-sm">
+  <!-- Header (Clean: No Owner Button) -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-rose-100 shadow-sm">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-      <div class="flex items-center gap-2 cursor-pointer" onclick="showUserView()">
-        <div class="w-10 h-10 rounded-full bg-rose-600 flex items-center justify-center text-white font-bold text-xl shadow-md">
+      
+      <!-- SECRET TRIGGER: Triple click on this Logo to open Owner Portal -->
+      <div class="flex items-center gap-2 cursor-pointer" onclick="handleSecretLogoClick()" title="Premkatha Kolkata">
+        <div class="w-10 h-10 rounded-full bg-rose-600 flex items-center justify-center text-white font-bold text-xl shadow-md active:scale-95 transition">
           ❤️
         </div>
         <div>
@@ -37,21 +39,15 @@
       </div>
 
       <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-600">
-        <a href="#profiles" onclick="showUserView()" class="hover:text-rose-600 transition">Explore Singles</a>
+        <a href="#profiles" class="hover:text-rose-600 transition">Explore Singles</a>
         <button onclick="openPlansModal()" class="text-rose-600 hover:text-rose-700 font-bold flex items-center gap-1 transition">
           📹 Video Call Plans
-        </button>
-        <button onclick="openOwnerModal()" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-full font-bold flex items-center gap-1 transition">
-          👑 Owner & Payouts
         </button>
       </nav>
 
       <div class="flex items-center gap-2">
         <button onclick="openPlansModal()" class="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-rose-600 to-amber-500 hover:opacity-95 text-white font-bold text-xs shadow-sm transition flex items-center gap-1">
           <span>📹 Video Pass</span>
-        </button>
-        <button onclick="openOwnerModal()" class="md:hidden text-xs bg-slate-100 text-slate-700 px-2.5 py-1 rounded-full font-bold">
-          👑 Owner
         </button>
         <button onclick="openJoinModal()" class="px-4 py-1.5 rounded-full bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shadow-md transition">
           Join Free
@@ -78,8 +74,8 @@
         </p>
         
         <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button onclick="openPlansModal()" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-rose-600 hover:bg-rose-700 text-white font-bold shadow-lg shadow-rose-300 transition text-base flex items-center justify-center gap-2">
-            <span>📹 Get Video Call Pass (₹199)</span>
+          <button onclick="openPlansModal()" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-rose-600 hover:bg-rose-700 text-white font-bold shadow-lg shadow-rose-300 transition text-base">
+            📹 Get Video Call Pass (<span class="displayPlan1Price">₹199</span>)
           </button>
           <button onclick="openJoinModal()" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white hover:bg-rose-50 text-slate-700 font-bold border border-slate-200 shadow-sm transition text-base">
             Create Profile Free
@@ -134,8 +130,8 @@
               <button onclick="startVideoCall('Ananya Sen', 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80')" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-rose-700 hover:opacity-95 text-white font-bold text-xs shadow-md shadow-rose-200 transition flex items-center justify-center gap-2">
                 <span>📹 Start Video Call Now</span>
               </button>
-              <button onclick="initiatePayment('Ananya WhatsApp Unlock', 99)" class="w-full py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs transition">
-                💬 WhatsApp Number (₹99)
+              <button onclick="initiateUnlock('Ananya WhatsApp Unlock')" class="w-full py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs transition">
+                💬 WhatsApp Number (<span class="displayUnlockPrice">₹99</span>)
               </button>
             </div>
           </div>
@@ -167,8 +163,8 @@
               <button onclick="startVideoCall('Sourav Mukherjee', 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80')" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-rose-700 hover:opacity-95 text-white font-bold text-xs shadow-md shadow-rose-200 transition flex items-center justify-center gap-2">
                 <span>📹 Start Video Call Now</span>
               </button>
-              <button onclick="initiatePayment('Sourav WhatsApp Unlock', 99)" class="w-full py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs transition">
-                💬 WhatsApp Number (₹99)
+              <button onclick="initiateUnlock('Sourav WhatsApp Unlock')" class="w-full py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs transition">
+                💬 WhatsApp Number (<span class="displayUnlockPrice">₹99</span>)
               </button>
             </div>
           </div>
@@ -200,8 +196,8 @@
               <button onclick="startVideoCall('Debolina Roy', 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80')" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-rose-700 hover:opacity-95 text-white font-bold text-xs shadow-md shadow-rose-200 transition flex items-center justify-center gap-2">
                 <span>📹 Start Video Call Now</span>
               </button>
-              <button onclick="initiatePayment('Debolina WhatsApp Unlock', 99)" class="w-full py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs transition">
-                💬 WhatsApp Number (₹99)
+              <button onclick="initiateUnlock('Debolina WhatsApp Unlock')" class="w-full py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs transition">
+                💬 WhatsApp Number (<span class="displayUnlockPrice">₹99</span>)
               </button>
             </div>
           </div>
@@ -213,7 +209,6 @@
 
   <!-- LIVE 1-ON-1 VIDEO CALL MODAL SCREEN -->
   <div id="videoCallModal" class="fixed inset-0 bg-slate-950/95 z-50 hidden flex flex-col items-center justify-between p-4 sm:p-6 text-white">
-    <!-- Call Header -->
     <div class="w-full max-w-4xl flex items-center justify-between">
       <div class="flex items-center gap-3">
         <div class="w-3 h-3 rounded-full bg-emerald-500 pulsing-dot"></div>
@@ -227,26 +222,19 @@
       </div>
     </div>
 
-    <!-- Video Streams Area -->
     <div class="w-full max-w-4xl flex-1 my-4 grid grid-cols-1 md:grid-cols-2 gap-4 relative">
-      <!-- Remote Video (Partner) -->
       <div class="relative bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 flex items-center justify-center shadow-2xl">
         <img id="partnerVideoThumb" src="" alt="Remote" class="w-full h-full object-cover">
         <div class="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold">
           <span id="callPartnerTag">Ananya (Live)</span>
         </div>
-        <div class="absolute top-4 right-4 bg-emerald-500/80 backdrop-blur-sm px-2.5 py-1 rounded-full text-[10px] font-bold">
-          HD 1080p
-        </div>
       </div>
 
-      <!-- Self Video Stream (User's Camera) -->
       <div class="relative bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 flex items-center justify-center shadow-2xl">
-        <video id="selfCameraVideo" autoplay playsinline muted class="w-full h-full object-cover mirror"></video>
+        <video id="selfCameraVideo" autoplay playsinline muted class="w-full h-full object-cover"></video>
         <div id="camFallback" class="absolute inset-0 bg-slate-900 hidden flex flex-col items-center justify-center p-6 text-center">
           <div class="w-16 h-16 rounded-full bg-slate-800 flex items-center justify-center text-2xl mb-2">📷</div>
-          <p class="text-xs font-bold text-slate-300">Aapka Camera On Hai</p>
-          <p class="text-[10px] text-slate-500 mt-1">Video Stream Live</p>
+          <p class="text-xs font-bold text-slate-300">Camera Active</p>
         </div>
         <div class="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold">
           You (Kolkata)
@@ -254,7 +242,6 @@
       </div>
     </div>
 
-    <!-- Call Control Buttons -->
     <div class="w-full max-w-md flex items-center justify-center gap-5 pb-2">
       <button onclick="toggleAudio()" id="micBtn" class="w-14 h-14 rounded-full bg-slate-800 hover:bg-slate-700 flex items-center justify-center text-xl transition">
         🎙️
@@ -268,7 +255,7 @@
     </div>
   </div>
 
-  <!-- SUBSCRIPTION & VIP PASSES MODAL -->
+  <!-- SUBSCRIPTION MODAL -->
   <div id="plansModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
       <button onclick="closePlansModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold">&times;</button>
@@ -280,57 +267,42 @@
       </div>
 
       <div class="space-y-3.5 mt-6">
-        <!-- Plan 1 -->
-        <div class="p-4 rounded-2xl border-2 border-rose-500 bg-rose-50/50 flex items-center justify-between cursor-pointer hover:bg-rose-100/60 transition" onclick="initiatePayment('Gold Unlimited Video Pass (1 Month)', 199)">
+        <div class="p-4 rounded-2xl border-2 border-rose-500 bg-rose-50/50 flex items-center justify-between cursor-pointer hover:bg-rose-100/60 transition" onclick="buyPlan(1)">
           <div>
             <span class="text-[10px] font-bold text-rose-700 bg-white px-2 py-0.5 rounded-full border border-rose-200">MOST POPULAR</span>
             <h4 class="font-bold text-slate-900 text-base mt-1">1 Month Unlimited Video</h4>
             <p class="text-xs text-slate-600 mt-0.5">Unlimited 1-on-1 HD Video & Audio calls</p>
           </div>
           <div class="text-right">
-            <span class="text-xl font-extrabold text-rose-600">₹199</span>
+            <span class="text-xl font-extrabold text-rose-600 displayPlan1Price">₹199</span>
             <button class="block text-[10px] bg-rose-600 text-white font-bold px-3 py-1 rounded-full mt-1">Get Pass</button>
           </div>
         </div>
 
-        <!-- Plan 2 -->
-        <div class="p-4 rounded-2xl border border-amber-300 bg-amber-50/40 hover:bg-amber-100/50 flex items-center justify-between cursor-pointer transition" onclick="initiatePayment('Diamond 3 Months VIP Pass', 499)">
+        <div class="p-4 rounded-2xl border border-amber-300 bg-amber-50/40 hover:bg-amber-100/50 flex items-center justify-between cursor-pointer transition" onclick="buyPlan(2)">
           <div>
             <span class="text-[10px] font-bold text-amber-800 bg-amber-200 px-2 py-0.5 rounded-full">BEST VALUE</span>
             <h4 class="font-bold text-slate-900 text-base mt-1">3 Months VIP Video + WA</h4>
             <p class="text-xs text-slate-600 mt-0.5">Unlimited Video Calls + 50 WhatsApp Unlocks</p>
           </div>
           <div class="text-right">
-            <span class="text-xl font-extrabold text-amber-600">₹499</span>
+            <span class="text-xl font-extrabold text-amber-600 displayPlan2Price">₹499</span>
             <button class="block text-[10px] bg-amber-600 text-white font-bold px-3 py-1 rounded-full mt-1">Get Pass</button>
-          </div>
-        </div>
-
-        <!-- Plan 3 -->
-        <div class="p-4 rounded-2xl border border-slate-200 hover:border-slate-400 bg-white flex items-center justify-between cursor-pointer transition" onclick="initiatePayment('Single Video Call Token', 49)">
-          <div>
-            <h4 class="font-bold text-slate-900 text-sm">Trial Video Call (1 Session)</h4>
-            <p class="text-xs text-slate-500">10-minute instant video date with any single</p>
-          </div>
-          <div class="text-right">
-            <span class="text-lg font-bold text-slate-900">₹49</span>
-            <button class="block text-[10px] bg-slate-900 text-white font-bold px-2.5 py-0.5 rounded-full mt-1">Unlock</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- OWNER & PAYOUT DASHBOARD VIEW -->
+  <!-- SECRET OWNER & PAYOUT DASHBOARD VIEW (NO VISIBLE BUTTON) -->
   <main id="ownerView" class="hidden flex-1 max-w-6xl mx-auto px-4 py-8 w-full">
     <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200">
       
-      <!-- Top Bar -->
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-100">
         <div>
           <div class="flex items-center gap-2">
-            <span class="px-2.5 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-md">👑 OWNER & PAYOUT MANAGER</span>
-            <span class="text-xs text-emerald-600 font-bold">● Video Calls & Subscriptions Active</span>
+            <span class="px-2.5 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-md">👑 SECRET OWNER PORTAL</span>
+            <span class="text-xs text-emerald-600 font-bold">● Private Session</span>
           </div>
           <h2 class="text-2xl font-bold font-serif text-slate-900 mt-2">Premkatha Payout & Revenue Center</h2>
           <p class="text-xs text-slate-500">Live Video Subscription Earnings & Instant Bank Payouts.</p>
@@ -357,9 +329,9 @@
         </div>
 
         <div class="bg-rose-50 p-5 rounded-2xl border border-rose-100">
-          <p class="text-xs font-semibold text-rose-700">Total Video Call Sessions</p>
-          <h4 class="text-3xl font-extrabold text-rose-950 mt-1">62</h4>
-          <p class="text-[10px] text-rose-600 mt-1">Completed this week</p>
+          <p class="text-xs font-semibold text-rose-700">Total User Signups</p>
+          <h4 class="text-3xl font-extrabold text-rose-950 mt-1" id="totalUsersCount">18</h4>
+          <p class="text-[10px] text-rose-600 mt-1">Kolkata residents</p>
         </div>
 
         <div class="bg-blue-50 p-5 rounded-2xl border border-blue-100">
@@ -369,6 +341,63 @@
             ✏️ Change UPI / Bank
           </button>
         </div>
+      </div>
+
+      <!-- OWNER SETTINGS: PIN CHANGE & SUBSCRIPTION PRICES -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 my-6">
+        
+        <!-- Left: Subscription Price Manager -->
+        <div class="lg:col-span-2 p-6 bg-gradient-to-r from-rose-50/70 to-amber-50/70 rounded-3xl border border-rose-200">
+          <h3 class="text-base font-bold text-slate-900 flex items-center gap-2 mb-1">
+            <span>⚙️ Set Subscription & Video Pass Prices</span>
+          </h3>
+          <p class="text-xs text-slate-600 mb-4">Subscription amount badlein, website aur QR code turant update ho jayenge.</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div class="bg-white p-3.5 rounded-2xl border border-slate-200">
+              <label class="block text-xs font-bold text-slate-700 mb-1">1 Month Pass (₹)</label>
+              <input type="number" id="inputPlan1" class="w-full px-3 py-1.5 text-sm font-bold rounded-xl border border-slate-300">
+            </div>
+
+            <div class="bg-white p-3.5 rounded-2xl border border-slate-200">
+              <label class="block text-xs font-bold text-slate-700 mb-1">3 Months Pass (₹)</label>
+              <input type="number" id="inputPlan2" class="w-full px-3 py-1.5 text-sm font-bold rounded-xl border border-slate-300">
+            </div>
+
+            <div class="bg-white p-3.5 rounded-2xl border border-slate-200">
+              <label class="block text-xs font-bold text-slate-700 mb-1">Unlock WhatsApp (₹)</label>
+              <input type="number" id="inputUnlock" class="w-full px-3 py-1.5 text-sm font-bold rounded-xl border border-slate-300">
+            </div>
+          </div>
+
+          <button onclick="saveNewPrices()" class="mt-4 px-5 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs rounded-xl shadow-md transition">
+            💾 Save New Prices
+          </button>
+        </div>
+
+        <!-- Right: Change Secret PIN -->
+        <div class="p-6 bg-slate-900 text-white rounded-3xl border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-amber-400 font-bold text-sm">🔒 Security</span>
+              <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded-md">Secret Access</span>
+            </div>
+            <h3 class="text-base font-bold text-white">Change Owner PIN</h3>
+            <p class="text-xs text-slate-400 mt-1">Apna 4-digit secret passcode kisi bhi samay update karein.</p>
+
+            <div class="mt-4 space-y-2">
+              <div>
+                <label class="block text-[11px] text-slate-300 font-bold mb-1">Enter New Secret PIN</label>
+                <input id="newPinInput" type="password" maxlength="6" placeholder="e.g. 7890" class="w-full px-3 py-2 bg-slate-800 text-white text-center font-bold text-sm rounded-xl border border-slate-700 focus:outline-none focus:border-amber-400">
+              </div>
+            </div>
+          </div>
+
+          <button onclick="changeOwnerPin()" class="mt-4 w-full py-2.5 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs rounded-xl shadow-md transition">
+            🔐 Update Secret PIN
+          </button>
+        </div>
+
       </div>
 
       <!-- Payout Request History -->
@@ -393,13 +422,6 @@
                 <td class="p-3">Video Subscriptions</td>
                 <td class="p-3 text-right"><span class="bg-emerald-100 text-emerald-700 font-bold px-2 py-0.5 rounded-full text-[10px]">Settled in Bank</span></td>
               </tr>
-              <tr>
-                <td class="p-3 font-mono font-bold text-slate-900">PO-KOL-8921</td>
-                <td class="p-3 font-bold text-emerald-600">₹1,500</td>
-                <td class="p-3 font-mono">rs5930573@oksbi</td>
-                <td class="p-3">WhatsApp Passes</td>
-                <td class="p-3 text-right"><span class="bg-emerald-100 text-emerald-700 font-bold px-2 py-0.5 rounded-full text-[10px]">Settled in Bank</span></td>
-              </tr>
             </tbody>
           </table>
         </div>
@@ -408,13 +430,11 @@
     </div>
   </main>
 
-  <!-- PAYMENT CHECKOUT MODAL (For Users) -->
+  <!-- PAYMENT CHECKOUT MODAL -->
   <div id="paymentModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl relative text-center">
       <button onclick="closePaymentModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold">&times;</button>
-      <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center mx-auto text-2xl mb-2">
-        📹
-      </div>
+      <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center mx-auto text-2xl mb-2">📹</div>
       <h3 class="text-xl font-bold font-serif text-slate-900" id="payModalTitle">Video Call Subscription</h3>
       <p class="text-xs text-slate-500 mt-1">Instant Activation with Kolkata Singles</p>
 
@@ -426,9 +446,9 @@
         <p class="text-[11px] text-slate-500 mt-1">Direct Bank UPI Checkout</p>
 
         <div class="mt-4 pt-3 border-t border-slate-200">
-          <p class="text-[11px] font-bold text-slate-700 mb-1">Scan QR via GPay / PhonePe / Paytm / BHIM:</p>
+          <p class="text-[11px] font-bold text-slate-700 mb-1">Scan QR via GPay / PhonePe / Paytm:</p>
           <div class="bg-white p-3 rounded-xl border border-slate-200 text-center flex flex-col items-center">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=upi://pay?pa=rs5930573@oksbi&pn=Premkatha&am=199&cu=INR" alt="UPI QR" class="w-32 h-32 rounded-lg shadow-sm">
+            <img id="checkoutQrImg" src="" alt="UPI QR" class="w-32 h-32 rounded-lg shadow-sm">
             <p class="text-[10px] font-mono text-slate-500 mt-1.5 font-bold">UPI: <span id="checkoutUpiId">rs5930573@oksbi</span></p>
           </div>
         </div>
@@ -470,19 +490,18 @@
     </div>
   </div>
 
-  <!-- Owner Passcode Login Modal -->
-  <div id="ownerModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+  <!-- SECRET OWNER PASSCODE MODAL -->
+  <div id="ownerModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl relative text-center">
       <button onclick="closeOwnerModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold">&times;</button>
       <div class="w-12 h-12 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center mx-auto text-2xl mb-3">👑</div>
-      <h3 class="text-xl font-bold font-serif text-slate-900">Owner Access</h3>
-      <p class="text-xs text-slate-500 mt-1">Apna Owner PIN darj karein</p>
+      <h3 class="text-xl font-bold font-serif text-slate-900">Secret Owner Access</h3>
+      <p class="text-xs text-slate-500 mt-1">Enter Secret Admin PIN</p>
 
       <form onsubmit="handleOwnerLogin(event)" class="mt-5 space-y-3">
-        <input id="ownerPin" type="password" maxlength="6" required placeholder="Enter Secret PIN" class="w-full text-center tracking-widest text-lg font-bold px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none">
-        <p class="text-[10px] text-slate-400">Default PIN: <b class="text-slate-600">1234</b></p>
+        <input id="ownerPin" type="password" maxlength="6" required placeholder="••••" class="w-full text-center tracking-widest text-xl font-bold px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none">
         <button type="submit" class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-xs shadow-md transition">
-          Access Dashboard & Payouts
+          Enter Dashboard
         </button>
       </form>
     </div>
@@ -495,20 +514,77 @@
         <p class="font-bold text-white font-serif text-sm">Premkatha Kolkata</p>
         <p class="text-[11px] mt-0.5">Authentic matchmaking & live video dating crafted for City of Joy.</p>
       </div>
-      <div class="flex items-center gap-4">
-        <button onclick="openPlansModal()" class="text-rose-400 hover:underline text-[11px]">📹 Video Plans</button>
-        <button onclick="openOwnerModal()" class="text-amber-400 hover:underline text-[11px]">👑 Owner & Payouts</button>
-        <p>© 2026 Premkatha Kolkata.</p>
-      </div>
+      <p>© 2026 Premkatha Kolkata. All rights reserved.</p>
     </div>
   </footer>
 
   <script>
     let ownerUPI = localStorage.getItem('premkatha_upi') || 'rs5930573@oksbi';
+    let ownerPIN = localStorage.getItem('premkatha_pin') || '1234';
     let balance = 4290;
     let callTimerInterval = null;
     let callSeconds = 0;
     let localStream = null;
+
+    let plan1Price = parseInt(localStorage.getItem('pk_plan1') || 199);
+    let plan2Price = parseInt(localStorage.getItem('pk_plan2') || 499);
+    let unlockPrice = parseInt(localStorage.getItem('pk_unlock') || 99);
+
+    function updatePriceDisplays() {
+      document.querySelectorAll('.displayPlan1Price').forEach(el => el.innerText = `₹${plan1Price}`);
+      document.querySelectorAll('.displayPlan2Price').forEach(el => el.innerText = `₹${plan2Price}`);
+      document.querySelectorAll('.displayUnlockPrice').forEach(el => el.innerText = `₹${unlockPrice}`);
+      
+      const in1 = document.getElementById('inputPlan1');
+      const in2 = document.getElementById('inputPlan2');
+      const inU = document.getElementById('inputUnlock');
+      if (in1) in1.value = plan1Price;
+      if (in2) in2.value = plan2Price;
+      if (inU) inU.value = unlockPrice;
+    }
+
+    function saveNewPrices() {
+      const p1 = parseInt(document.getElementById('inputPlan1').value);
+      const p2 = parseInt(document.getElementById('inputPlan2').value);
+      const pu = parseInt(document.getElementById('inputUnlock').value);
+
+      if (p1 > 0) { plan1Price = p1; localStorage.setItem('pk_plan1', p1); }
+      if (p2 > 0) { plan2Price = p2; localStorage.setItem('pk_plan2', p2); }
+      if (pu > 0) { unlockPrice = pu; localStorage.setItem('pk_unlock', pu); }
+
+      updatePriceDisplays();
+      alert("✅ Badhiya! Naye subscription prices save ho gaye hain.");
+    }
+
+    // Change Owner Secret PIN
+    function changeOwnerPin() {
+      const newPin = document.getElementById('newPinInput').value.trim();
+      if (!newPin || newPin.length < 4) {
+        alert("Kripya kam se kam 4 digit ka naya PIN daalein!");
+        return;
+      }
+      ownerPIN = newPin;
+      localStorage.setItem('premkatha_pin', newPin);
+      document.getElementById('newPinInput').value = '';
+      alert(`🔐 Safalta! Aapka naya Secret Owner PIN set ho gaya hai: ${newPin}`);
+    }
+
+    // Secret Tap Trigger (3 Taps on Logo)
+    let logoClickCount = 0;
+    let logoClickTimer = null;
+
+    function handleSecretLogoClick() {
+      logoClickCount++;
+      clearTimeout(logoClickTimer);
+      if (logoClickCount >= 3) {
+        logoClickCount = 0;
+        openOwnerModal();
+      } else {
+        logoClickTimer = setTimeout(() => {
+          logoClickCount = 0;
+        }, 1000);
+      }
+    }
 
     function openJoinModal() { document.getElementById('joinModal').classList.remove('hidden'); }
     function closeJoinModal() { document.getElementById('joinModal').classList.add('hidden'); }
@@ -525,18 +601,15 @@
       document.getElementById('partnerVideoThumb').src = photo;
       document.getElementById('videoCallModal').classList.remove('hidden');
 
-      // Request User Camera
       try {
         localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
         const selfVid = document.getElementById('selfCameraVideo');
         selfVid.srcObject = localStream;
         document.getElementById('camFallback').classList.add('hidden');
       } catch (err) {
-        console.warn("Camera access denied or device without cam:", err);
         document.getElementById('camFallback').classList.remove('hidden');
       }
 
-      // Start Call Timer
       callSeconds = 0;
       clearInterval(callTimerInterval);
       callTimerInterval = setInterval(() => {
@@ -554,7 +627,6 @@
         localStream = null;
       }
       document.getElementById('videoCallModal').classList.add('hidden');
-      alert("Video call ended. Did you like your conversation? Don't forget to send a connection request!");
     }
 
     function toggleAudio() {
@@ -579,14 +651,15 @@
 
     function handleOwnerLogin(e) {
       e.preventDefault();
-      const pin = document.getElementById('ownerPin').value;
-      if (pin === "1234") {
+      const enteredPin = document.getElementById('ownerPin').value;
+      if (enteredPin === ownerPIN) {
         closeOwnerModal();
         document.getElementById('userView').classList.add('hidden');
         document.getElementById('ownerView').classList.remove('hidden');
+        updatePriceDisplays();
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
-        alert("Galat PIN! Default PIN 1234 hai.");
+        alert("Galat PIN!");
       }
     }
 
@@ -602,7 +675,7 @@
         localStorage.setItem('premkatha_upi', newUpi);
         document.getElementById('ownerUpiDisplay').innerText = newUpi;
         document.getElementById('checkoutUpiId').innerText = newUpi;
-        alert("UPI ID successfully update ho gayi: " + newUpi);
+        alert("UPI ID update ho gayi: " + newUpi);
       }
     }
 
@@ -629,16 +702,33 @@
       document.getElementById('payoutBalance').innerText = '₹0';
     }
 
+    function buyPlan(planType) {
+      closePlansModal();
+      if (planType === 1) {
+        initiatePayment('1 Month Unlimited Video Pass', plan1Price);
+      } else {
+        initiatePayment('3 Months VIP Video + WA Pass', plan2Price);
+      }
+    }
+
+    function initiateUnlock(item) {
+      initiatePayment(item, unlockPrice);
+    }
+
     function initiatePayment(item, amt) {
       closePlansModal();
       document.getElementById('payModalTitle').innerText = item;
       document.getElementById('payModalAmount').innerText = `₹${amt}`;
       document.getElementById('checkoutUpiId').innerText = ownerUPI;
+      
+      const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=upi://pay?pa=${encodeURIComponent(ownerUPI)}&pn=Premkatha&am=${amt}&cu=INR`;
+      document.getElementById('checkoutQrImg').src = qrUrl;
+
       document.getElementById('paymentModal').classList.remove('hidden');
     }
 
     function confirmPaymentSuccess() {
-      alert("Payment confirmation received! Aapka Video Call Pass active ho gaya hai. Ab aap kisi se bhi direct video call kar sakte hain!");
+      alert("Payment confirmation received! Aapka Pass active ho gaya hai.");
       closePaymentModal();
     }
 
@@ -649,7 +739,9 @@
       closeJoinModal();
     }
 
-    if (window.location.hash === '#admin') {
+    updatePriceDisplays();
+
+    if (window.location.hash === '#owner' || window.location.hash === '#admin') {
       openOwnerModal();
     }
   </script>
