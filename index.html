@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premkatha Kolkata - Find Real Bengali Love</title>
+  <meta name="description" content="Kolkata's most trusted cultural dating app for genuine Bengali singles.">
+  
+  <!-- Tailwind CSS & Lucide Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-serif { font-family: 'Playfair Display', serif; }
+    .bg-crimson { background-color: #881337; }
+    .text-crimson { color: #881337; }
+    .border-crimson { border-color: #881337; }
+  </style>
+</head>
+<body class="bg-rose-50/40 text-slate-800 antialiased min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-rose-100 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-10 h-10 rounded-full bg-rose-600 flex items-center justify-center text-white font-bold text-xl shadow-md">
+          ❤️
+        </div>
+        <div>
+          <span class="text-xl font-bold font-serif text-rose-900 tracking-tight">Premkatha</span>
+          <span class="block text-[10px] text-rose-600 font-semibold tracking-widest uppercase">Kolkata Dating</span>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-600">
+        <a href="#profiles" class="hover:text-rose-600 transition">Explore Singles</a>
+        <a href="#how" class="hover:text-rose-600 transition">How It Works</a>
+        <a href="#safety" class="hover:text-rose-600 transition">Verified Safety</a>
+      </nav>
+
+      <button onclick="openJoinModal()" class="px-5 py-2.5 rounded-full bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm shadow-md shadow-rose-200 transition">
+        Join Free
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="py-14 sm:py-20 px-4 text-center bg-gradient-to-b from-rose-100/60 to-transparent">
+    <div class="max-w-3xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-rose-200/60 text-rose-900 text-xs font-bold mb-6">
+        <span>✨ #1 Kolkata Matchmaking App</span>
+      </div>
+      <h1 class="text-4xl sm:text-6xl font-extrabold font-serif text-slate-900 leading-tight">
+        Kolkatar Prem, <br>
+        <span class="text-rose-600 italic">Ebar Notun Rupe.</span>
+      </h1>
+      <p class="mt-5 text-base sm:text-lg text-slate-600 max-w-xl mx-auto">
+        Connect with genuine Kolkata singles over Phuchka dates, Coffee House adda, and heartfelt Bengali romances.
+      </p>
+      
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <button onclick="openJoinModal()" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-rose-600 hover:bg-rose-700 text-white font-bold shadow-lg shadow-rose-300 transition text-base">
+          Start Dating Today
+        </button>
+        <a href="#profiles" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white hover:bg-rose-50 text-slate-700 font-bold border border-slate-200 shadow-sm transition text-base">
+          Browse Verified Profiles
+        </a>
+      </div>
+
+      <!-- Trust Badges -->
+      <div class="mt-10 flex items-center justify-center gap-6 text-xs font-semibold text-slate-500">
+        <span class="flex items-center gap-1">🛡️ 100% ID Verified</span>
+        <span class="flex items-center gap-1">☕ Adda First Culture</span>
+        <span class="flex items-center gap-1">🔒 Zero Spam Guarantee</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Profiles Grid -->
+  <section id="profiles" class="py-12 max-w-6xl mx-auto px-4 sm:px-6 w-full">
+    <div class="flex items-center justify-between mb-8">
+      <div>
+        <h2 class="text-2xl sm:text-3xl font-bold font-serif text-slate-900">Featured Kolkata Singles</h2>
+        <p class="text-sm text-slate-500 mt-1">Verified members looking for meaningful relationships</p>
+      </div>
+      <span class="text-xs bg-rose-100 text-rose-700 font-bold px-3 py-1 rounded-full">Live Now</span>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <!-- Card 1 -->
+      <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition border border-rose-100 flex flex-col">
+        <div class="h-64 bg-slate-200 relative overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Ananya" class="w-full h-full object-cover">
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-white text-xs font-medium">
+            📍 Park Street, Kolkata
+          </div>
+          <div class="absolute top-3 right-3 bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+            ✓ Verified
+          </div>
+        </div>
+        <div class="p-5 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-bold text-slate-900">Ananya Sen, 26</h3>
+              <span class="text-xs font-semibold text-rose-600 bg-rose-50 px-2 py-1 rounded-md">Architect</span>
+            </div>
+            <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+              "Coffee House lovers & Rabindra Sangeet evenings. Looking for someone genuine for slow walks along Victoria Memorial."
+            </p>
+            <div class="mt-4 flex flex-wrap gap-1.5">
+              <span class="text-[11px] bg-slate-100 text-slate-700 px-2.5 py-1 rounded-full">📚 Books</span>
+              <span class="text-[11px] bg-slate-100 text-slate-700 px-2.5 py-1 rounded-full">☕ Black Coffee</span>
+              <span class="text-[11px] bg-slate-100 text-slate-700 px-2.5 py-1 rounded-full">🎨 Art</span>
+            </div>
+          </div>
+          <button onclick="openJoinModal()" class="mt-5 w-full py-2.5 rounded-xl bg-rose-50 hover:bg-rose-600 hover:text-white text-rose-600 font-bold text-xs transition">
+            Send Connection Request
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition border border-rose-100 flex flex-col">
+        <div class="h-64 bg-slate-200 relative overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" alt="Sourav" class="w-full h-full object-cover">
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-white text-xs font-medium">
+            📍 Salt Lake, Sector V
+          </div>
+          <div class="absolute top-3 right-3 bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+            ✓ Verified
+          </div>
+        </div>
+        <div class="p-5 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-bold text-slate-900">Sourav Mukherjee, 29</h3>
+              <span class="text-xs font-semibold text-rose-600 bg-rose-50 px-2 py-1 rounded-md">Tech Lead</span>
+            </div>
+            <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+              "Biryani debate champion (Arsalan vs Shiraz). Looking for an intellectual soul who enjoys music and weekend bike trips."
+            </p>
+            <div class="mt-4 flex flex-wrap gap-1.5">
+              <span class="text-[11px] bg-slate-100 text-slate-700 px-2.5 py-1 rounded-full">🍛 Foodie</span>
+              <span class="text-[11px] bg-slate-100 text-slate-700 px-2.5 py-1 rounded-full">🎸 Rock Music</span>
+              <span class="text-[11px] bg-slate-100 text-slate-700 px-2.5 py-1 rounded-full">💻 Tech</span>
+            </div>
+          </div>
+          <button onclick="openJoinModal()" class="mt-5 w-full py-2.5 rounded-xl bg-rose-50 hover:bg-rose-600 hover:text-white text-rose-600 font-bold text-xs transition">
+            Send Connection Request
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition border border-rose-100 flex flex-col">
+        <div class="h-64 bg-slate-200 relative overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80" alt="Pooja" class="w-full h-full object-cover">
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-white text-xs font-medium">
+            📍 Ballygunge, South Kolkata
+          </div>
+          <div class="absolute top-3 right-3 bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+            ✓ Verified
+          </div>
+        </div>
+        <div class="p-5 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-bold text-slate-900">Debolina Roy, 27</h3>
+              <span class="text-xs font-semibold text-rose-600 bg-rose-50 px-2 py-1 rounded-md">Content Creator</span>
+            </div>
+            <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+              "Sunset ghats along Hooghly river & candid photography. Believe in simple love stories without games."
+            </p>
+            <div class="mt-4 flex flex-wrap gap-1.5">
+              <span class="text-[11px] bg-slate-100 text-slate-700 px-2.5 py-1 rounded-full">📷 Photo</span>
+              <span class="text-[11px] bg-slate-100 text-slate-700 px-2.5 py-1 rounded-full">🌅 Sunsets</span>
+              <span class="text-[11px] bg-slate-100 text-slate-700 px-2.5 py-1 rounded-full">🍵 Chai Adda</span>
+            </div>
+          </div>
+          <button onclick="openJoinModal()" class="mt-5 w-full py-2.5 rounded-xl bg-rose-50 hover:bg-rose-600 hover:text-white text-rose-600 font-bold text-xs transition">
+            Send Connection Request
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Join Modal -->
+  <div id="joinModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative">
+      <button onclick="closeJoinModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold">
+        &times;
+      </button>
+      <div class="text-center">
+        <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center mx-auto text-2xl mb-3">
+          ❤️
+        </div>
+        <h3 class="text-2xl font-bold font-serif text-slate-900">Join Premkatha Kolkata</h3>
+        <p class="text-xs text-slate-500 mt-1">Create your profile to start connecting today</p>
+      </div>
+
+      <form onsubmit="handleRegister(event)" class="mt-6 space-y-3.5">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Your Name</label>
+          <input type="text" required placeholder="e.g. Rahul Sen" class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-rose-500">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Kolkata Area / Locality</label>
+          <input type="text" required placeholder="e.g. South City, Salt Lake, Garia" class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-rose-500">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Email / WhatsApp Number</label>
+          <input type="text" required placeholder="For private verification" class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-rose-500">
+        </div>
+        <button type="submit" class="w-full py-3 mt-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm shadow-md transition">
+          Create Free Profile
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="mt-auto bg-slate-900 text-slate-400 py-8 px-4 text-center text-xs">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <p class="font-bold text-white font-serif text-sm">Premkatha Kolkata</p>
+        <p class="text-[11px] mt-0.5">Authentic matchmaking crafted for City of Joy.</p>
+      </div>
+      <p>© 2026 Premkatha Kolkata. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function openJoinModal() {
+      document.getElementById('joinModal').classList.remove('hidden');
+    }
+    function closeJoinModal() {
+      document.getElementById('joinModal').classList.add('hidden');
+    }
+    function handleRegister(e) {
+      e.preventDefault();
+      alert("Welcome to Premkatha Kolkata! Your profile is verified.");
+      closeJoinModal();
+    }
+  </script>
+</body>
+</html>
